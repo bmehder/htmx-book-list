@@ -1,8 +1,10 @@
 import express from 'express'
+
 import createHomepageTemplate from './views/index.js'
 import createListTemplate from './views/list.js'
 import createBookTemplate from './views/book.js'
 import createEditFormTemplate from './views/edit.js'
+
 import BOOKS_DATA from './data/data.js'
 
 // create app

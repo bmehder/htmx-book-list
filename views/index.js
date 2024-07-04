@@ -4,7 +4,7 @@ const createHomepageTemplate = () => /*html*/ `
     <head>
       <title>My Reading List</title>
       <script src="https://unpkg.com/htmx.org@1.9.12"></script>
-      <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/htmx.org@2.0.0"></script>
       <link rel="stylesheet" href="/styles.css">
     </head>
   
@@ -24,6 +24,7 @@ const createHomepageTemplate = () => /*html*/ `
             hx-target=".book-list"
           >
         </div>
+
         <div class="book-list" hx-get="/books" hx-trigger="load"></div>
 
         <div class="add-book-form">
