@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 // route callbacks
-const routeHandlers = {
+const routeHandlers = Object.freeze({
 	getHomepage: (_, res) => {
 		res.send(createHomepageTemplate())
 	},
@@ -47,10 +47,9 @@ const routeHandlers = {
 	updateBook: (req, res) => {
 		const { id } = req.params
 		const { title, author } = req.body
+		const idx = BOOKS_DATA.findIndex(book => book.id === id)
 
 		const updatedBook = { id, title, author }
-
-		const idx = BOOKS_DATA.findIndex(book => book.id === id)
 
 		BOOKS_DATA[idx] = updatedBook
 
@@ -68,7 +67,7 @@ const routeHandlers = {
 
 		res.send(createListTemplate(books))
 	},
-}
+})
 
 // routes
 app.get('/', routeHandlers.getHomepage)

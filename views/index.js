@@ -3,9 +3,8 @@ const createHomepageTemplate = () => /*html*/ `
   <html>
     <head>
       <title>My Reading List</title>
-      <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+      <link rel="stylesheet" type="text/css" href="/styles.css">
       <script src="https://unpkg.com/htmx.org@2.0.0"></script>
-      <link rel="stylesheet" href="/styles.css">
     </head>
   
     <body>
@@ -19,8 +18,8 @@ const createHomepageTemplate = () => /*html*/ `
             type="search"
             name="search"
             placeholder="Search books by title..."
+            hx-trigger="keyup changed delay:100ms"
             hx-post="/books/search"
-            hx-trigger="keyup changed delay:300ms"
             hx-target=".book-list"
           >
         </div>
